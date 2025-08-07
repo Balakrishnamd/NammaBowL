@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Namma Bowl - Customize Your Salad</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="light-mode">
+
+  <!-- Top Banner -->
+  <div class="top-banner">
+    Delivery starting at ₹199 | Get up to 10% off on your 1st Order | Free Delivery above ₹999
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>Namma Bowl</h1>
+    <nav>
+      <a href="#" onclick="showStep(1)">Customize</a>
+      <a href="#" onclick="showStep(5)">Pricing</a>
+      <a href="#" onclick="showStep(4)">Delivery</a>
+      <a href="#" onclick="showStep(5)">Contact</a>
+    </nav>
+    <button onclick="toggleTheme()" class="dark-mode-toggle">🌙</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://i0.wp.com/themealpreplife.com/wp-content/uploads/2021/03/IMG_4845.jpg?fit=2500%2C1667&ssl=1" alt="Fruit Bowls" />
+    <div class="hero-overlay">
+      <h2>Create Your Own Fruit & Veggie Bowl</h2>
+      <p>Choose your favorite fruits and veggies. Customize toppings and delivery time.</p>
+      <button onclick="showStep(1)">Start Customizing</button>
+    </div>
+  </section>
+
+  <!-- Delivery Info Bar -->
+  <div class="delivery-info">
+    <span>Order by: <span id="orderTime">03:00 PM</span>, Today</span>
+    <span>Get it between: 05:00 PM - 08:00 PM, Today</span>
+    <span>Same Day Deliveries available in Delhi/NCR*</span>
+    <span>Deliveries Starting 8 AM onwards</span>
+    <div id="countdown" class="countdown"></div>
+  </div>
+
+  <!-- Main Form Steps -->
+  <main id="app">
+
+    <!-- Step 1: Base Ingredients -->
+    <div id="step1" class="step active">
+      <h3>Choose Base Ingredients (Select 2)</h3>
+      <div class="ingredient-grid">
+        <div onclick="toggleSelection(this, 'Watermelon')" data-name="Watermelon">
+          <img src=" https://www.thespruceeats.com/thmb/AiRgtd0se0G-ySlqkPUCbSnUfI8%3d/2001x1501/filters:fill(auto%2c1)/GettyImages-141859959-56a499555f9b58b7d0d7bca0.jpg" alt="Watermelon">
+          <p>Watermelon</p>
+        </div>
+        <div onclick="toggleSelection(this, 'Cucumber')" data-name="Cucumber">
+          <img src=" https://www.freshpoint.com/wp-content/uploads/2020/02/freshpoint-english-cucumber-scaled.jpg" alt="Cucumber">
+          <p>Cucumber</p>
+        </div>
+        <div onclick="toggleSelection(this, 'Papaya')" data-name="Papaya">
+          <img src=" https://www.thespruceeats.com/thmb/PPYSyTlY2_ISOwuQXnL5xlVPDfY=/1500x1035/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-914617584-3db6c4fb1f314e688b9593c83cf0a2dc.jpg" alt="Papaya">
+          <p>Papaya</p>
+        </div>
+        <div onclick="toggleSelection(this, 'Muskmelon')" data-name="Muskmelon">
+          <img src=" https://thumbs.dreamstime.com/b/musk-melon-cut-cleaned-sale-76216697.jpg" alt="Muskmelon">
+          <p>Muskmelon</p>
+        </div>
+      </div>
+      <div class="step-buttons">
+        <button disabled>Back</button>
+        <button onclick="nextStep()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Add-Ons -->
+    <div id="step2" class="step">
+      <h3>Add-Ons (Max 3)</h3>
+      <div class="ingredient-grid">
+        <div onclick="toggleSelection(this, 'Apple')" data-name="Apple">
+          <img src=" https://static.vecteezy.com/system/resources/previews/001/334/871/original/red-apples-on-a-wooden-table-free-photo.jpg" alt="Apple">
+          <p>Apple</p>
+        </div>
+        <div onclick="toggleSelection(this, 'Kiwi')" data-name="Kiwi">
+          <img src=" https://images6.alphacoders.com/806/thumb-1920-806083.jpg" alt="Kiwi">
+          <p>Kiwi</p>
+        </div>
+        <div onclick="toggleSelection(this, 'Pineapple')" data-name="Pineapple">
+          <img src=" https://images2.alphacoders.com/241/thumb-1920-241720.jpg" alt="Pineapple">
+          <p>Pineapple</p>
+        </div>
+        <div onclick="toggleSelection(this, 'Dragonfruit')" data-name="Dragonfruit">
+          <img src=" https://www.tastingtable.com/img/gallery/how-to-eat-dragon-fruit-for-the-uninitiated/intro-1682966430.jpg" alt="Dragonfruit">
+          <p>Dragonfruit</p>
+        </div>
+      </div>
+      <div class="step-buttons">
+        <button onclick="prevStep()">Back</button>
+        <button onclick="nextStep()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Toppings -->
+    <div id="step3" class="step">
+      <h3>Toppings</h3>
+      <div class="ingredient-grid">
+        <div onclick="toggleSelection(this, 'Lemon Zest')" data-name="Lemon Zest">
+          <img src=" https://www.thedailymeal.com/img/gallery/the-simple-technique-to-squeeze-lemons-without-dropping-seeds/l-intro-1673468047.jpg" alt="Lemon Zest">
+          <p>Lemon Zest</p>
+        </div>
+        <div onclick="toggleSelection(this, 'Honey Drizzle')" data-name="Honey Drizzle">
+          <img src=" https://png.pngtree.com/thumb_back/fh260/background/20231023/pngtree-textured-surface-with-honey-drizzled-over-black-cumin-image_13680772.png" alt="Honey Drizzle">
+          <p>Honey Drizzle</p>
+        </div>
+        <div onclick="toggleSelection(this, 'Chia Seeds')" data-name="Chia Seeds">
+          <img src=" https://thumbs.dreamstime.com/b/spoon-chia-seed-water-140498686.jpg" alt="Chia Seeds">
+          <p>Chia Seeds</p>
+        </div>
+      </div>
+      <div class="step-buttons">
+        <button onclick="prevStep()">Back</button>
+        <button onclick="nextStep()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Container & Delivery -->
+    <div id="step4" class="step">
+      <h3>Container & Delivery</h3>
+      <label for="container">Container Type:</label>
+      <select id="container" onchange="updatePrice()">
+        <option value="Plastic Bowl">Plastic Bowl</option>
+        <option value="Eco Box (+₹10)">Eco Box (+₹10)</option>
+      </select>
+
+      <label for="delivery">Delivery Time:</label>
+      <select id="delivery">
+        <option>Morning 8–9 AM</option>
+        <option>Afternoon 12–1 PM</option>
+        <option>Evening 5–6 PM</option>
+      </select>
+
+      <div class="step-buttons">
+        <button onclick="prevStep()">Back</button>
+        <button onclick="nextStep()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 5: Checkout -->
+    <div id="step5" class="step">
+      <h3>Checkout</h3>
+      <input type="text" placeholder="Full Name" id="name">
+      <input type="tel" placeholder="Phone Number" id="phone">
+      <textarea id="address" rows="3" placeholder="Enter full address"></textarea>
+
+      <div class="step-buttons">
+        <button onclick="prevStep()">Back</button>
+        <button onclick="submitOrder()">Place Order</button>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+        <h3>Order Placed!</h3>
+        <p>Thank you for ordering with Namma Bowl.</p>
+        <button onclick="closeModal()">Close</button>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Order placed successfully!</div>
+  </main>
+
+  <!-- Live Preview -->
+  <div class="live-preview">
+    <h4>Your Bowl</h4>
+    <div id="previewBowl" class="bowl-preview"></div>
+    <p>Total: ₹<span id="totalPrice">0</span></p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Namma Bowl. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
